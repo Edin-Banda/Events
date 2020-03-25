@@ -1,0 +1,10 @@
+     
+    <script>
+    function displayDate(){
+        document.getElementById("demo").innerHTML = Date();
+    }
+    </script>
+   <body>
+   <button onclick="displayDate()">time</button>
+   <p id="demo"> </p>
+   </body>
