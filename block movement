@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #block{
+            margin: 25px;
+            width: 550px;
+            height: 100px;
+            background: red;
+            position: relative;
+            font-size: 20px;
+        }
+
+        @-webkit-keyframes go{
+            from{top: 0px;}
+            to{top: 200px;}
+        }
+
+    </style>
+</head>
+<body>
+    <div id="block" onclick="move()">click here</div>
+
+    <script>
+        var x = document.getElementById("block");
+
+        function move(){
+            x.style.webkitAnimation = "go 4s 2";
+            x.style.animation = "go 4s 2"
+        }
+
+        x.addEventListener("webkitAnimationStart", startAnimation);
+        x.addEventListener("webkitAnimationIteration", repeatAnimation);
+        x.addEventListener("webkitAnimationEnd", stopAnimation);
+
+        function startAnimation(){
+            this.innerHTML = "animation has started"
+            this.style.backgroundColor = "pink"
+        }
+
+        function repeatAnimation(){
+            this.innerHTML = "animation has repeated"
+            this.style.backgroundColor = "green"
+        }
+
+        function stopAnimation(){
+            this.innerHTML = "animation has ztopped"
+            this.style.backgroundColor = "blue"
+        }
+    </script>
+</body>
+</html>
