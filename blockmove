@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            height: 400px;
+            width: 600px;
+            outline: 1px solid black;
+            position: relative;
+        }
+
+        #block{
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            outline: 1px solid black;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="block"></div>
+    </div>
+
+    <script>
+
+        var block = document.getElementById("block");
+        var container = document.getElementById("container");
+
+        var blockLeft = 0;
+
+        function move(e){
+            if(e.keyCode==68){
+                blockLeft +=2;
+                block.style.left = blockLeft + 'px';
+                if(blockLeft >= 550){
+                    blockLeft -=2;
+                }
+            }
+            if(e.keyCode==65){
+                blockLeft -=2;
+                block.style.left = blockLeft + 'px';
+                if(blockLeft <= 0){
+                    blockLeft +=2;
+                }
+            }
+        }
+
+        document.onkeydown = move;
+
+    </script>
+
+</body>
+</html>
