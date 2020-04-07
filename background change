@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .html body{
+            height: 100%;
+        }
+
+        .body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container{
+            height: 400px;
+            width: 600px;
+            outline: 1px solid black;
+            position: relative;
+            transition: background-color 1s ease-in-out;
+        }
+
+        #block{
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            outline: 1px solid black;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="block"></div>
+    </div>
+
+    <script>
+
+        var block = document.getElementById("block");
+        var container = document.getElementById("container");
+
+        var blockLeft = 50;
+
+        function move(e){
+            if(e.keyCode==68){
+                blockLeft +=2;
+                block.style.left = blockLeft + 'px';
+                if(blockLeft >= 550){
+                    blockLeft -=2;
+                }
+            }
+            if(e.keyCode==65){
+                blockLeft -=2;
+                block.style.left = blockLeft + 'px';
+                if(blockLeft <= 0){
+                    blockLeft +=2;
+                }
+            }
+
+            if(e.keyCode==83){
+                blockLeft -=2;
+                block.style.height = blockLeft + 'px';
+            }
+
+            if(blockLeft <= 39){
+                container.style.background = "white";
+            }
+            if(blockLeft >= 40 ){
+                container.style.background = "green";
+            }
+            if(blockLeft >= 80 ){
+                container.style.background = "yellow";
+            }
+
+            if(blockLeft >= 120 ){
+                container.style.background = "pink";
+            }
+
+        }
+
+        
+
+        document.onkeydown = move;
+
+    </script>
+
+</body>
+</html>
